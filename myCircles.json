@@ -1,0 +1,108 @@
+{
+  "myCircles": {
+    "1": {
+      "id": 1,
+      "name": "dumazis",
+      "members": 2,
+      "maxMemberId": 2,
+      "myMembers": {
+        "1": {
+          "id": 1,
+          "name": "matijyp",
+          "longitude": 79.95362074489964,
+          "latitude": -55.10970728701034
+        },
+        "2": {
+          "id": 2,
+          "name": "lazyzac",
+          "longitude": 89.52076029354379,
+          "latitude": -64.70933705326918
+        }
+      }
+    },
+    "2": {
+      "id": 2,
+      "name": "fozypic",
+      "members": 1,
+      "maxMemberId": 1,
+      "myMembers": {
+        "1": {
+          "id": 1,
+          "name": "veforad",
+          "longitude": 81.55101424634353,
+          "latitude": 86.71351530533184
+        }
+      }
+    },
+    "3": {
+      "id": 3,
+      "name": "zegyreg",
+      "members": 1,
+      "maxMemberId": 1,
+      "myMembers": {
+        "1": {
+          "id": 1,
+          "name": "gikutop",
+          "longitude": -125.78228261055403,
+          "latitude": 5.509286638551032
+        }
+      }
+    }
+  },
+  "myIndex": {
+    "indexCircles": {
+      "1": {
+        "2": {
+          "id": 2,
+          "name": "fozypic",
+          "members": 1,
+          "maxMemberId": 1,
+          "myMembers": {
+            "1": {
+              "id": 1,
+              "name": "veforad",
+              "longitude": 81.55101424634353,
+              "latitude": 86.71351530533184
+            }
+          }
+        },
+        "3": {
+          "id": 3,
+          "name": "zegyreg",
+          "members": 1,
+          "maxMemberId": 1,
+          "myMembers": {
+            "1": {
+              "id": 1,
+              "name": "gikutop",
+              "longitude": -125.78228261055403,
+              "latitude": 5.509286638551032
+            }
+          }
+        }
+      },
+      "2": {
+        "1": {
+          "id": 1,
+          "name": "dumazis",
+          "members": 2,
+          "maxMemberId": 2,
+          "myMembers": {
+            "1": {
+              "id": 1,
+              "name": "matijyp",
+              "longitude": 79.95362074489964,
+              "latitude": -55.10970728701034
+            },
+            "2": {
+              "id": 2,
+              "name": "lazyzac",
+              "longitude": 89.52076029354379,
+              "latitude": -64.70933705326918
+            }
+          }
+        }
+      }
+    }
+  }
+}
