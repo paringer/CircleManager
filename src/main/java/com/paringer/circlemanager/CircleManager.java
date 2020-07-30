@@ -1,9 +1,7 @@
 package com.paringer.circlemanager;
 
 /*
- * com.paringer.circlemanager.Circle Manager
- *
- * A com.paringer.circlemanager.Circle manager that can add and remove members based on a circle ID.
+ * A CircleManager that can add and remove members based on a circle ID.
  * Also able to query the number of circles with a given number of members
  */
 public interface CircleManager {

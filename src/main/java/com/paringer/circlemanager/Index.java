@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentSkipListMap;
 
+/**
+ * represents Index
+ */
 public class Index {
 
     ConcurrentSkipListMap<Integer, HashMap<Integer, Circle>> indexCircles = new ConcurrentSkipListMap<>();
@@ -12,7 +15,6 @@ public class Index {
      * Return the number of circles with members of size n passed
      * into the function. Try to optimize this to be as performant as possible.
      */
-
     synchronized public Integer query(Integer memberCount) {
         if (indexCircles.containsKey(memberCount))
             return indexCircles.get(memberCount).size();
@@ -20,6 +22,10 @@ public class Index {
             return 0;
     }
 
+    /**
+     * creates index and indexes all circles by members count
+     * @param myCircles map of circles by circle id
+     */
     synchronized public void index(ConcurrentSkipListMap<Integer, Circle> myCircles) {
         indexCircles.clear();
         for (Map.Entry<Integer, Circle> it : myCircles.entrySet()) {
@@ -31,6 +37,10 @@ public class Index {
         }
     }
 
+    /**
+     * adds Circle to index by members count. can't remove old record with wrong number of members.
+     * @param circle circle
+     */
     synchronized public void updateIndex(Circle circle) {
         if (!indexCircles.containsKey(circle.members))
             indexCircles.put(circle.members, new HashMap<Integer, Circle>());
@@ -38,12 +48,20 @@ public class Index {
         map.put(circle.id, circle);
     }
 
+    /**
+     * removes circle from index by members count
+     * @param circle circle
+     */
     synchronized public void cleanIndexRecord(Circle circle) {
         if (indexCircles.containsKey(circle.members)) {
             indexCircles.get(circle.members).remove(circle.id);
         }
     }
 
+    /**
+     * method isEmpty
+     * @return empty or not
+     */
     synchronized public boolean isEmpty() {
         return indexCircles.size() == 0;
     }

@@ -10,6 +10,11 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ConcurrentSkipListMap;
 
+/**
+ * implements Circle Manager, allows to add/remove circles and members,
+ * find duplicates, merge duplicates, query by members count,
+ * save to json file, load from json file
+ */
 public class CircleManagerImpl implements CircleManager {
     ConcurrentSkipListMap<Integer, Circle> myCircles = new ConcurrentSkipListMap<>();
     Index myIndex = new Index();
@@ -73,6 +78,11 @@ public class CircleManagerImpl implements CircleManager {
         return myIndex.query(memberCount);
     }
 
+    /**
+     * finds duplicates by id
+     * @param list of Circles
+     * @return number of duplicates
+     */
     synchronized public Integer findDuplicates(List<Circle> list) {
         int duplicates = 0;
         HashMap<Integer, Circle> map = new HashMap<>();
@@ -86,6 +96,11 @@ public class CircleManagerImpl implements CircleManager {
         return duplicates;
     }
 
+    /**
+     * finds, merges, and removes duplicates
+     * @param list of Circles
+     * @return list of Circles without duplicates
+     */
     synchronized public List<Circle> mergeDuplicates(List<Circle> list) {
         int duplicates = 0;
         HashMap<Integer, Circle> map = new HashMap<>();
@@ -102,11 +117,18 @@ public class CircleManagerImpl implements CircleManager {
         return new ArrayList<>(map.values());
     }
 
+    /**
+     * prints string representation to console
+     */
     synchronized public void print() {
         System.out.println(this);
     }
 
 
+    /**
+     * saves to json
+     * @param fileName name of json file to save to
+     */
     synchronized public void saveJSON(String fileName) {
         String json = new GsonBuilder().setPrettyPrinting().create().toJson(this);
         try {
@@ -118,6 +140,11 @@ public class CircleManagerImpl implements CircleManager {
         }
     }
 
+    /**
+     * loads from json
+     * @param fileName name of json file to load from
+     * @return new CircleManagerImpl, loaded from json
+     */
     synchronized public CircleManagerImpl loadJSON(String fileName) {
         Map<Integer, Circle> myCircles = new HashMap<>();
         try {
@@ -131,6 +158,10 @@ public class CircleManagerImpl implements CircleManager {
         return null;
     }
 
+    /**
+     * method toString
+     * @return string representation
+     */
     @Override
     public String toString() {
         return "com.paringer.circlemanager.CircleManagerImpl{" +
